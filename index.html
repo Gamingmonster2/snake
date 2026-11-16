@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>أفعى النيون: تطوّر | Neon Snake Evolution</title>
+<meta name="description" content="لعبة مستوحاة من ثعبان نوكيا: شخصيات حيوانات متعددة، مستويات، أصوات طبيعية، ونظام نقاط. تعمل كتطبيق ويب.">
+<meta name="theme-color" content="#0b0620">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+<div class="grain" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-emoji" aria-hidden="true">🐍</span>
+    <div><h1>أفعى النيون: تطوّر</h1><p>شخصيات • مستويات • أصوات طبيعية • PWA</p></div>
+  </div>
+  <div class="top-actions">
+    <button id="btnAccount" class="icon-btn" aria-label="الحساب" title="الحساب">👤</button>
+    <button id="btnSound" class="icon-btn" aria-label="الصوت" title="الصوت (M)">🔊</button>
+    <button id="btnFull" class="icon-btn" aria-label="ملء الشاشة" title="ملء الشاشة">⛶</button>
+  </div>
+</header>
+<main class="layout">
+  <section class="stage-col">
+    <div class="device glass" id="device">
+      <div class="hud">
+        <div class="hud-item score"><span class="hud-ico">🍎</span><div><b id="hudScore">0</b><small>النقاط</small></div></div>
+        <div class="hud-item best" id="hudBestBox"><span class="hud-ico">👑</span><div><b id="hudBest">0</b><small>الأفضل</small></div></div>
+        <div class="hud-item lvl"><span class="hud-ico">⚡</span><div><b id="hudLevel">1</b><small>المستوى</small></div></div>
+        <div class="hud-item goal"><span class="hud-ico">🎯</span><div><b id="hudGoal">0/0</b><small>هدف المرحلة</small></div></div>
+        <div class="hud-btns">
+          <button id="btnPause" class="icon-btn sm" aria-label="إيقاف مؤقت">⏸</button>
+          <button id="btnRestart" class="icon-btn sm" aria-label="جولة جديدة">🔁</button>
+        </div>
+      </div>
+      <div class="board-wrap" id="boardWrap">
+        <canvas id="game"></canvas>
+        <div class="vignette" aria-hidden="true"></div>
+        <div class="scanlines" id="scanlines" aria-hidden="true"></div>
+        <div class="overlay" id="ovMenu">
+          <div class="ov-inner">
+            <div class="menu-snake" id="menuCreatureEmoji">🐍</div>
+            <h2 class="ov-title">أفعى النيون: تطوّر</h2>
+            <p class="ov-tag" id="menuTag">اختر حيوانك وابدأ المغامرة</p>
+            <div class="chips" id="menuChips"></div>
+            <button class="btn-primary" id="btnStart">▶ ابدأ اللعب</button>
+            <p class="ov-hint">الأسهم/WASD للحركة • مسافة إيقاف • R إعادة • M صوت</p>
+          </div>
+        </div>
+        <div class="overlay hidden" id="ovCount"><div id="countNum">3</div></div>
+        <div class="overlay hidden" id="ovPause">
+          <div class="ov-card"><div class="ov-emoji">⏸️</div><h2>إيقاف مؤقت</h2><p class="ov-tag">خذ نفسًا… المغامرة مستمرة</p><button class="btn-primary" id="btnResume">▶ متابعة</button><button class="btn-ghost" id="btnRestartP">🔁 جولة جديدة</button></div>
+        </div>
+        <div class="overlay hidden" id="ovOver">
+          <div class="ov-card"><div class="ov-emoji" id="ovOverEmoji">💀</div><h2 id="ovOverTitle">انتهت الجولة!</h2><div id="recordBanner" hidden>🎉 رقم قياسي جديد!</div><div class="final-score" id="ovOverScore">0</div><p class="ov-tag" id="ovOverBest"></p><div class="chips" id="ovOverStats"></div><button class="btn-primary" id="btnAgain">🔁 العب مجددًا</button><button class="btn-ghost" id="btnMenu">🏠 القائمة</button></div>
+        </div>
+        <div class="overlay hidden" id="ovAccount">
+          <div class="ov-card account-card"><div class="ov-emoji">👤</div><h2>الملف الشخصي</h2><p class="ov-tag">محفوظ محليًا الآن — جاهز للربط بحسابك لاحقًا</p><label class="field"><span>اسم اللاعب</span><input id="profileName" type="text" maxlength="24" placeholder="اكتب اسمك"></label><div class="row-actions"><button class="btn-primary" id="btnSaveProfile">💾 حفظ</button><button class="btn-ghost" id="btnLoginSoon">🔐 تسجيل الدخول (قريبًا)</button></div><p class="ov-hint" id="profileHint"></p><button class="btn-ghost" id="btnCloseAccount">إغلاق</button></div>
+        </div>
+        <div class="toast" id="toast" role="status"></div>
+      </div>
+      <div class="dpad" id="dpad">
+        <button id="dpUp">▲</button><button id="dpLeft">◀</button><button id="dpMid">⏸</button><button id="dpRight">▶</button><button id="dpDown">▼</button>
+      </div>
+      <p class="hint-keys">⌨️ الأسهم/WASD • مسافة إيقاف • R إعادة • M صوت • اسحب على الساحة باللمس</p>
+    </div>
+  </section>
+  <aside class="panel">
+    <section class="card glass"><h2>🦎 اختر الحيوان</h2><p class="muted small">لكل حيوان أسلوب وسرعة وقدرة خاصة</p><div class="creature-grid" id="creatureGrid"></div></section>
+    <section class="card glass"><h2>🗺️ المراحل والمستويات</h2><div class="level-box"><div class="level-meta"><b id="stageName">—</b><span id="stageDesc" class="muted small"></span></div><div class="progress"><i id="stageProg"></i></div><div class="muted small" id="stageTarget"></div></div></section>
+    <section class="card glass"><h2>🎨 ساحة اللعب</h2><div class="theme-grid" id="themeGrid"></div></section>
+    <section class="card glass"><h2>⚙️ الإعدادات</h2><div class="diff-row" id="diffRow"></div><div class="tg-row"><div><span class="tg-name">🧱 جدران قاتلة</span><small>اصطدام الحافة ينهي الجولة</small></div><button class="switch" id="tgWalls" role="switch" aria-checked="true"><i></i></button></div><div class="tg-row"><div><span class="tg-name">🪨 عوائق</span><small>كتل خطرة تزداد مع التقدم</small></div><button class="switch" id="tgObs" role="switch" aria-checked="false"><i></i></button></div><div class="tg-row"><div><span class="tg-name">🔲 شبكة</span><small>إظهار خطوط الخلايا</small></div><button class="switch" id="tgGrid" role="switch" aria-checked="true"><i></i></button></div><div class="tg-row"><div><span class="tg-name">🌿 أصوات الطبيعة</span><small>مؤثرات مستوحاة من الطبيعة</small></div><button class="switch" id="tgNature" role="switch" aria-checked="true"><i></i></button></div><div class="tg-row"><div><span class="tg-name">📳 اهتزاز</span><small>اهتزاز عند الاصطدام</small></div><button class="switch" id="tgShake" role="switch" aria-checked="true"><i></i></button></div></section>
+    <section class="card glass"><h2>🏆 السجل والنقاط</h2><div class="stats-grid"><div class="stat-tile gold"><b id="stBest">0</b><small>👑 أفضل نتيجة</small></div><div class="stat-tile"><b id="stGames">0</b><small>🎮 الجولات</small></div><div class="stat-tile"><b id="stApples">0</b><small>🍎 الطعام</small></div><div class="stat-tile"><b id="stXP">0</b><small>⭐ نقاط الخبرة</small></div></div><button id="btnResetStats">🗑️ تصفير السجل</button></section>
+    <section class="card glass help"><h2>💡 قدرات الحيوانات</h2><ul id="creatureTips" class="tips"></ul></section>
+  </aside>
+</main>
+<footer>🐍 <b>أفعى النيون: تطوّر</b> — PWA جاهزة للويب والأندرويد لاحقًا • <span id="footerProfile">لاعب محلي</span></footer>
+<noscript><p style="text-align:center;padding:20px">تحتاج تفعيل JavaScript</p></noscript>
+<script src="js/game.js"></script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script>
+</body>
+</html>

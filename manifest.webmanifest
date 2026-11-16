@@ -1,0 +1,15 @@
+﻿{
+  "name": "أفعى النيون",
+  "short_name": "أفعى النيون",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070312",
+  "theme_color": "#0b0620",
+  "description": "لعبة الثعبان الكلاسيكية من نوكيا بنسخة نيون مع شخصيات ومستويات.",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
