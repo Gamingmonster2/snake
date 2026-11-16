@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>أفعى النيون: تطوّر | Neon Snake Evolution</title>
-<meta name="description" content="لعبة مستوحاة من ثعبان نوكيا: شخصيات حيوانات متعددة، مستويات، أصوات طبيعية، ونظام نقاط. تعمل كتطبيق ويب.">
+<meta name="description" content="أفعى النيون: تطوّر — لعبة ويب من منصة STREAM مستوحاة من ثعبان نوكيا: حيوانات وشخصيات متعددة، مراحل، أصوات طبيعية، ونظام نقاط وملف لاعب.">
 <meta name="theme-color" content="#0b0620">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
@@ -20,7 +20,10 @@
 <header class="topbar">
   <div class="brand">
     <span class="brand-emoji" aria-hidden="true">🐍</span>
-    <div><h1>أفعى النيون: تطوّر</h1><p>شخصيات • مستويات • أصوات طبيعية • PWA</p></div>
+    <div>
+      <h1>أفعى النيون: تطوّر</h1>
+      <p>لعبة ويب من <a href="https://stream.com.ly/" target="_blank" rel="noopener" class="brand-platform">منصة STREAM</a> • شخصيات • مراحل • أصوات طبيعية • PWA</p>
+    </div>
   </div>
   <div class="top-actions">
     <button id="btnAccount" class="icon-btn" aria-label="الحساب" title="الحساب">👤</button>
@@ -80,9 +83,19 @@
     <section class="card glass"><h2>⚙️ الإعدادات</h2><div class="diff-row" id="diffRow"></div><div class="tg-row"><div><span class="tg-name">🧱 جدران قاتلة</span><small>اصطدام الحافة ينهي الجولة</small></div><button class="switch" id="tgWalls" role="switch" aria-checked="true"><i></i></button></div><div class="tg-row"><div><span class="tg-name">🪨 عوائق</span><small>كتل خطرة تزداد مع التقدم</small></div><button class="switch" id="tgObs" role="switch" aria-checked="false"><i></i></button></div><div class="tg-row"><div><span class="tg-name">🔲 شبكة</span><small>إظهار خطوط الخلايا</small></div><button class="switch" id="tgGrid" role="switch" aria-checked="true"><i></i></button></div><div class="tg-row"><div><span class="tg-name">🌿 أصوات الطبيعة</span><small>مؤثرات مستوحاة من الطبيعة</small></div><button class="switch" id="tgNature" role="switch" aria-checked="true"><i></i></button></div><div class="tg-row"><div><span class="tg-name">📳 اهتزاز</span><small>اهتزاز عند الاصطدام</small></div><button class="switch" id="tgShake" role="switch" aria-checked="true"><i></i></button></div></section>
     <section class="card glass"><h2>🏆 السجل والنقاط</h2><div class="stats-grid"><div class="stat-tile gold"><b id="stBest">0</b><small>👑 أفضل نتيجة</small></div><div class="stat-tile"><b id="stGames">0</b><small>🎮 الجولات</small></div><div class="stat-tile"><b id="stApples">0</b><small>🍎 الطعام</small></div><div class="stat-tile"><b id="stXP">0</b><small>⭐ نقاط الخبرة</small></div></div><button id="btnResetStats">🗑️ تصفير السجل</button></section>
     <section class="card glass help"><h2>💡 قدرات الحيوانات</h2><ul id="creatureTips" class="tips"></ul></section>
+    <section class="card glass platform-info">
+      <h2>🌐 عن اللعبة والمنصة</h2>
+      <p class="muted small"><b>أفعى النيون: تطوّر (Neon Snake: Evolution)</b> هي لعبة ويب مستوحاة من ثعبان نوكيا الكلاسيكي، طُوّرت بأسلوب نيون حديث مع شخصيات حيوانات متعددة، مراحل وتحديات، نظام نقاط وخبرة، وأصوات مستوحاة من الطبيعة — وتعمل مباشرة في المتصفح كتطبيق ويب (PWA) دون تثبيت.</p>
+      <p class="muted small" style="margin-top:8px">هذه اللعبة جزء من <a href="https://stream.com.ly/" target="_blank" rel="noopener"><b>منصة STREAM</b></a> للألعاب والتجارب الرقمية (stream.com.ly). ضمن خارطة المنصة: ألعاب وتجارب ويب، ثم أدوات وتطبيقات صغيرة مستقبلًا.</p>
+      <p class="muted small" style="margin-top:8px"><b>النطاق الفرعي المقترح:</b> <code>snake.stream.com.ly</code> (مثال: <span dir="ltr">https://snake.stream.com.ly/</span>) — اسم قصير وواضح بالإنجليزية وسهل التذكر.</p>
+      <div class="chips" style="margin-top:10px;justify-content:flex-start">
+        <a class="chip-mini" href="https://stream.com.ly/" target="_blank" rel="noopener">🏠 منصة STREAM</a>
+        <a class="chip-mini" href="https://github.com/Gamingmonster2/snake" target="_blank" rel="noopener">💻 مستودع اللعبة</a>
+      </div>
+    </section>
   </aside>
 </main>
-<footer>🐍 <b>أفعى النيون: تطوّر</b> — PWA جاهزة للويب والأندرويد لاحقًا • <span id="footerProfile">لاعب محلي</span></footer>
+<footer>🐍 <b>أفعى النيون: تطوّر</b> — لعبة من <a href="https://stream.com.ly/" target="_blank" rel="noopener">منصة STREAM</a> • PWA جاهزة للويب والأندرويد لاحقًا • مقترح النطاق: <span dir="ltr">snake.stream.com.ly</span> • <span id="footerProfile">لاعب محلي</span></footer>
 <noscript><p style="text-align:center;padding:20px">تحتاج تفعيل JavaScript</p></noscript>
 <script src="js/game.js"></script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script>

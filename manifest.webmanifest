@@ -1,6 +1,6 @@
 ﻿{
-  "name": "أفعى النيون",
-  "short_name": "أفعى النيون",
+  "name": "أفعى النيون: تطوّر | Neon Snake: Evolution",
+  "short_name": "Neon Snake",
   "lang": "ar",
   "dir": "rtl",
   "start_url": "./index.html",
@@ -8,7 +8,8 @@
   "display": "standalone",
   "background_color": "#070312",
   "theme_color": "#0b0620",
-  "description": "لعبة الثعبان الكلاسيكية من نوكيا بنسخة نيون مع شخصيات ومستويات.",
+  "description": "لعبة ويب من منصة STREAM مستوحاة من ثعبان نوكيا: شخصيات حيوانات متعددة، مراحل، أصوات طبيعية، نقاط وملف لاعب. PWA.",
+  "categories": ["games", "entertainment"],
   "icons": [
     { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]

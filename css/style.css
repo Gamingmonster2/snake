@@ -128,6 +128,9 @@ button{font-family:inherit;cursor:pointer;touch-action:manipulation;color:inheri
 .row-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:4px}
 footer{text-align:center;font-size:12px;color:var(--muted);padding:26px 20px 34px}
 footer b{color:var(--acc1)}
+footer a,.brand-platform,.platform-info a{color:var(--acc1);text-decoration:none}
+footer a:hover,.brand-platform:hover,.platform-info a:hover{text-decoration:underline}
+.platform-info code{font-family:ui-monospace,monospace;font-size:11px;background:rgba(255,255,255,.08);padding:2px 6px;border-radius:6px;color:var(--text)}
 @media (max-width:1020px){.layout{grid-template-columns:1fr}.panel{position:static;max-height:none;overflow:visible}}
 @media (pointer:coarse),(max-width:720px){.dpad{display:grid}.hint-keys{display:none}}
 @media (max-width:480px){.topbar{padding:8px 12px}.brand p{display:none}.brand h1{font-size:16px}.layout{padding:14px 12px 6px;gap:14px}.device{padding:10px;border-radius:20px}.hud-item b{font-size:16px}.hud-ico{font-size:14px}.ov-card{padding:16px 16px}}

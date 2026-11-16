@@ -6,3 +6,6 @@ dist/
 .tmp/
 
 snake/
+
+_bundle.py
+_stream_site/
